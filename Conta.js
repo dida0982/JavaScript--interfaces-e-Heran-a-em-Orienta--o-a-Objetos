@@ -1,51 +1,52 @@
-export class Conta{
-    constructor(saldoInicial,cliente,agencia){
-        this._saldo = saldoInicial;
-        this._cliente = cliente ;
-        this._agencia = agencia;
-        this.tipo = tipo;
+import { Cliente } from "./Cliente";
+
+export class Conta {
+  constructor(saldoInicial, cliente, agencia) {
+    this._saldo = saldoInicial;
+    this._cliente = cliente;
+    this._agencia = agencia;
+    this._tipo = tipo;
+  }
+
+  set cliente(novoValor) {
+    if (novoValor instanceof Cliente) {
+      this.cliente = novoValor;
     }
-    set cliente(novoValor){
-        if(novoValor instanceof Cliente){
-            this._cliente = novoValor;
-        }
-    }
+  }
 
-    get cliente(){
-        return this._cliente;
-    }
+  get cliente() {
+    return this._cliente;
+  }
 
-    get saldo(){
-        return this._saldo;
-    }
+  get saldo() {
+    return this._saldo;
+  }
 
-    constructor(agencia, cliente){
-        this.agencia = agencia;
-        this.cliente = cliente;
-        this._saldo = 0;
-        ContaCorrente.numeroDeContas += 1;
-    }
+  sacar(valor) {
 
-
-    sacar(valor){
-
-        let taxa = 1
-       const valorSacado = taxa * valor;
-       if(this.saldo >= valorSacado){
-        this._saldo -= valorSacado;
+   let texa = 1
+   if(this._tipo == "corrente"){
+    taxa = 1.1;
+   }
+   if(this._tipo == "corrente"){
+    taxa = 0.5;
+   }
+    const valorSacado = taxa * valor;
+    if (this.saldo >= valor){
+        this_.saldo -= valor;
         return valorSacado;
-       }
-       
     }
+  }
 
-    depositar(valor){
-        this._saldo += valor;           
+  depositar(valor) {
+    if (valor <= 100) {
+      return;
     }
+    this._saldo += valor;
+  }
 
-    tranferir(valor, conta){
-        const valorSacado = this.sacar(valor);
-        conta.depositar(valorSacado);
-        
-    }   
-
+  tranferir(valor, conta) {
+    const valorSacado = this.sacar(valor);
+    conta.depositar(valorSacado);
+  }
 }
