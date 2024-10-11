@@ -1,12 +1,20 @@
 {
-  "name": "bytebank",
+  "name": "package",
   "version": "1.0.0",
-  "description": "Projeto do bytebank para seus clientes",
+  "description": "",
+  "type": "module",  
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dida0982/JavaScript--interfaces-e-Heran-a-em-Orienta--o-a-Objetos.git"
+  },
   "author": "",
   "license": "ISC",
-  "type": "module"
+  "bugs": {
+    "url": "https://github.com/dida0982/JavaScript--interfaces-e-Heran-a-em-Orienta--o-a-Objetos/issues"
+  },
+  "homepage": "https://github.com/dida0982/JavaScript--interfaces-e-Heran-a-em-Orienta--o-a-Objetos#readme"
 }
